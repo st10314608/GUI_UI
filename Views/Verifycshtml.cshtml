@@ -1,0 +1,36 @@
+﻿@model ContractClaimSystem.Models.Claim
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verify Claim</title>
+</head>
+<body>
+    <h1>Verify Claim</h1>
+    <form asp-action="Verify" method="post">
+        <input type="hidden" name="ClaimID" value="@Model.ClaimID" />
+        <div>
+            <label>Contract:</label>
+            <p>@Model.Contract</p>
+        </div>
+        <div>
+            <label>Claim Amount:</label>
+            <p>@Model.Amount</p>
+        </div>
+        <div>
+            <label>Document:</label>
+            @if (!string.IsNullOrEmpty(Model.DocumentName))
+            {
+                <a href="/documents/@Model.DocumentName" target="_blank">View Document</a>
+            }
+            else
+            {
+                <p>No document uploaded.</p>
+            }
+        </div>
+        <button type="submit" name="action" value="Approve">Approve</button>
+        <button type="submit" name="action" value="Reject">Reject</button>
+    </form>
+    <a href="@Url.Action("Index")">Back to Claims List</a>
+</body>
+</html>

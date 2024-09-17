@@ -1,0 +1,27 @@
+﻿<Window x:Class="ContractClaimSystem.VerifyClaimWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Verify Claim" Height="350" Width="400">
+    <Grid Margin="10">
+        <StackPanel>
+            <TextBlock FontSize="16" FontWeight="Bold" Text="Verify Claim" Margin="0,0,0,20"/>
+
+            <TextBlock Text="Claim ID:" />
+            <TextBox Name="ClaimIDTextBox" IsReadOnly="True" Width="200"/>
+
+            <TextBlock Text="Contract:" Margin="0,10,0,0"/>
+            <TextBox Name="ContractTextBox" IsReadOnly="True" Width="200"/>
+
+            <TextBlock Text="Claim Amount:" Margin="0,10,0,0"/>
+            <TextBox Name="AmountTextBox" IsReadOnly="True" Width="200"/>
+
+            <TextBlock Text="Uploaded Document:" Margin="0,10,0,0"/>
+            <TextBlock Name="DocumentLink" Text="No document uploaded." FontStyle="Italic" Foreground="Blue" MouseDown="DocumentLink_MouseDown"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20,20,0,0">
+                <Button Content="Approve" Width="100" Click="ApproveButton_Click"/>
+                <Button Content="Reject" Width="100" Margin="20,0,0,0" Click="RejectButton_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,30 @@
+﻿@model ContractClaimSystem.Models.Claim
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit Claim</title>
+</head>
+<body>
+    <h1>Submit Monthly Claim</h1>
+    <form asp-action="Submit" enctype="multipart/form-data" method="post">
+        <div>
+            <label for="Contract">Contract:</label>
+            <input type="text" id="Contract" name="Contract" value="@Model.Contract" required />
+        </div>
+        <div>
+            <label for="Amount">Claim Amount:</label>
+            <input type="number" id="Amount" name="Amount" step="0.01" value="@Model.Amount" required />
+        </div>
+        <div>
+            <label for="ClaimDate">Claim Date:</label>
+            <input type="date" id="ClaimDate" name="ClaimDate" value="@Model.ClaimDate.ToString("yyyy-MM-dd")" required />
+        </div>
+        <div>
+            <label for="Document">Upload Document:</label>
+            <input type="file" id="Document" name="document" />
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

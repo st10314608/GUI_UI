@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ContractClaimSystem.Models.Claim>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Claims Dashboard</title>
+</head>
+<body>
+    <h1>My Submitted Claims</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Claim ID</th>
+                <th>Contract</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Document</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var claim in Model)
+            {
+                <tr>
+                    <td>@claim.ClaimID</td>
+                    <td>@claim.Contract</td>
+                    <td>@claim.Amount</td>
+                    <td>@claim.Status</td>
+                    <td>@claim.DocumentName</td>
+                    <td>
+                        <a href="@Url.Action("Verify", new { id = claim.ClaimID })">Verify</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a href="@Url.Action("Submit")">Submit New Claim</a>
+</body>
+</html>
